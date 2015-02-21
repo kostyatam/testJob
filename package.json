@@ -1,0 +1,28 @@
+{
+  "name": "express-seed",
+  "version": "0.0.7",
+
+  "main": "index.js",
+
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "dependencies": {
+    "express": "latest",
+    "body-parser": "latest",
+    "gulp": "latest",
+    "gulp-ngmin": "latest",
+    "gulp-ng-annotate": "latest",
+    "gulp-uglify": "latest",
+    "gulp-concat": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass": "1.2.2",
+    "gulp-jade": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-express": "latest"
+  },
+
+  "license": "MIT"
+}

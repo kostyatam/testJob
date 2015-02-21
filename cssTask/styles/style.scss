@@ -1,0 +1,98 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@mixin clearfix {
+	&:after {
+		display: table;
+		content: '';
+		clear: both;
+	}
+}
+
+@mixin rtl {
+	html[dir="RTL"] & {
+		@content;
+	}
+}
+.example {
+	@include clearfix;
+	font-size: 16px;
+	font-family: Araial;
+	margin: 0 0 30px;
+	padding: 0 0 10px;
+	border-bottom: 1px solid #ccc;
+	&__description {
+		line-height: 1.5;
+		margin: 0 0 10px;
+	}
+}
+//form with flex
+.form {
+	width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    &__input {
+	    -webkit-flex: 1; 
+	    -ms-flex: 1;   
+	    flex: 1;
+	    margin: 0 15px 0 0;
+	    	html[dir="RTL"] & {
+	    		margin: 0 0 0 15px
+	    	}
+    }
+	&__send-code {
+		border-radius: 5px;
+	}    
+}
+//form using display: table
+.form {
+	&-wrapper {
+		display: table;
+		width: 100%;
+	}
+	&-table {
+		display: table-row;
+		&__item {
+			display: table-cell;
+			&--send-code {
+				width: 1px;
+			}
+			&--input {
+				width: 100%;
+			    padding: 0 15px 0 0;
+				html[dir="RTL"] & {
+					padding: 0 0 0 15px
+				}
+			}
+		}
+		&__input {
+			width: 100%;
+		}
+		&__send-code {
+			white-space: pre;
+		}
+	}
+}
+//form using js
+.form {
+	@include clearfix;
+	&-js {
+		width: 100%;
+		&__input {
+			float: left;
+		    margin: 0 15px 0 0;
+		    	html[dir="RTL"] & {
+		    		float: right;
+		    		margin: 0 0 0 15px;
+		    	}
+		}
+		&__send-code {
+			float: left;
+				html[dir="RTL"] & {
+		    		float: right;
+		    	}
+		}
+	}
+}

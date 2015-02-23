@@ -1,6 +1,5 @@
+@import 'normalize.css';
 * {
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
 }
 @mixin clearfix {
@@ -19,7 +18,7 @@
 .example {
 	@include clearfix;
 	font-size: 16px;
-	font-family: Araial;
+	font-family: Arial;
 	margin: 0 0 30px;
 	padding: 0 0 10px;
 	border-bottom: 1px solid #ccc;
@@ -38,12 +37,11 @@
 	    -ms-flex: 1;   
 	    flex: 1;
 	    margin: 0 15px 0 0;
-	    	html[dir="RTL"] & {
+	    	@include rtl {
 	    		margin: 0 0 0 15px
 	    	}
     }
 	&__send-code {
-		border-radius: 5px;
 	}    
 }
 //form using display: table
@@ -62,7 +60,7 @@
 			&--input {
 				width: 100%;
 			    padding: 0 15px 0 0;
-				html[dir="RTL"] & {
+				@include rtl {
 					padding: 0 0 0 15px
 				}
 			}
@@ -77,21 +75,21 @@
 }
 //form using js
 .form {
-	@include clearfix;
 	&-js {
+	@include clearfix;	
 		width: 100%;
 		&__input {
 			float: left;
 		    margin: 0 15px 0 0;
-		    	html[dir="RTL"] & {
+		    	@include rtl {
 		    		float: right;
 		    		margin: 0 0 0 15px;
 		    	}
 		}
 		&__send-code {
-			float: left;
-				html[dir="RTL"] & {
-		    		float: right;
+			float: right;
+				@include rtl {
+		    		float: left;
 		    	}
 		}
 	}

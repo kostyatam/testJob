@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" dir="RTL">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="styles/style.css">
-	<title>flexbox example</title>
+	<title>examples</title>
 </head>
 <body>
 	<div class="example">
-		<div class="example__description"></div>
+		<div class="example__description">
+			Используется display: flex
+		</div>
 		<form action="" class="form">
 			<input type="text" class="form__input">
 			<button class="form__send-code">Send Code</button>
 		</form>
 	</div>
 	<div class="example">
-		<div class="example__description"></div>
+		<div class="example__description">
+			Используется display: table, display: table-row и display: table-cell
+		</div>
 		<div class="form-wrapper">
 			<form action="" class="form-table">
 				<div class="form-table__item form-table__item--input">
@@ -27,13 +31,22 @@
 		</div>
 	</div>
 	<div class="example">
-		<div class="example__description"></div>
+		<div class="example__description">
+			Ипсользуется jQuery
+		</div>
 		<form action="" class="form-js">
 			<input type="text" class="form-js__input"> 
 			<button class="form-js__send-code">Нажми на меня</button>
 		</form>
 	</div>
 	<script src="js/jquery.min.js"></script>
+	<!--[if IE 7]>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	$('html').addClass('ie7');
+	});
+	</script>
+	<![endif]-->
 	<script src="js/main.js"></script>
 </body>
 </html>

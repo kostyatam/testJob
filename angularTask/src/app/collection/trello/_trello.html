@@ -1,0 +1,8 @@
+<div class="tiles-group" ng-repeat="grp in groupsList" ng-class="{'tiles-holder--last':$last}" tiles-holder>
+	<h2 class="tiles-group__header">{{grp.slug || 'Без группы'}}</h2>
+	<div ng-repeat="person in collection | filter: {group: {id: grp.id}}" class="tiles-group__tile one-tile">
+		<p class="one-tile__row">Имя: {{person.name}}</p>
+		<p class="one-tile__row">Телефон: {{person.phone}}</p>
+		<p class="one-tile__row"> Почта: {{person.email}}</p>
+	</div>
+</div>

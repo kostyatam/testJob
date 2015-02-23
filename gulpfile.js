@@ -10,40 +10,27 @@ var gulpConcat= require('gulp-concat')
 var gulpRename= require('gulp-rename')
 var gulpSass= require('gulp-sass')
 var gulpAutoprefixer= require('gulp-autoprefixer')
-var gulpJade= require('gulp-jade')
-
-
 
 gulp.task('scripts', function () {
-    return gulp.src(['src/scripts/*.js'])
-        .pipe(gulp.dest('release/scripts'))
+    return gulp.src(['angularTask/src/app/config.js', 'angularTask/src/app/collection/**/*.js','angularTask/src/app/hello/**/*.js','angularTask/src/app/directives/**/*.js'])
+        .pipe(gulpConcat('app.js'))
+        .pipe(gulp.dest('angularTask/src/app'))
         .pipe(gulpNgmin())
         .pipe(gulpUglify())
         .pipe(gulpRename({suffix: '.min'}))
-        .pipe(gulp.dest('release/scripts'))
+        .pipe(gulp.dest('angularTask/src/app'))
     ;
 })
 
 gulp.task('styles', function () {
-    return gulp.src(['src/styles/dodo.scss'])
+    return gulp.src(['angularTask/src/app/assets/styles/main.scss'])
         .pipe(gulpSass())
-        .pipe(gulp.dest('release/styles'))
+        .pipe(gulpAutoprefixer())
+        .pipe(gulp.dest('angularTask/src/app/assets/styles'))
     ;
 })
 
-gulp.task('images', function () {
-    return gulp.src(['src/images/*.*'])
-        .pipe(gulp.dest('release/images'))
-    ;
-})
-
-
-gulp.task('watch', function () {
-    gulp.watch(['src/scripts/**/*.js'], ['scripts'])
-    gulp.watch(['src/styles/**/*.scss'], ['styles'])
-    gulp.watch(['src/**/*.jade'], ['templates'])
-})
-gulp.task('default', ['scripts', 'styles', 'images', 'watch'])
+gulp.task('default', ['scripts', 'styles'])
 
 
 gulp.task('cssTask@scripts', function () {

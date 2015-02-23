@@ -1,0 +1,16 @@
+<ul class="list">
+	<li ng-repeat="person in collection" class="list__row list-row">
+		<div class="list-row__item">
+				Группа: {{person.group.id || 'Без группы'}}
+		</div>
+		<div class="list-row__item">
+			Имя: {{person.name}}
+		</div>
+		<div class="list-row__item">
+			Почта: {{person.email}}
+		</div>
+		<div class="list-row__item">
+			Телефон: {{person.phone}}
+		</div>
+	</li>
+</ul>

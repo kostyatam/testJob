@@ -1,0 +1,13 @@
+<div class="tiles-holder">
+	<div ng-repeat="person in collection" class="tile">
+		<p class="tile__row tile__row--group">
+			Группа: {{person.group.slug || 'Без группы'}}
+		</p>
+		<div class="tile__row tile__row--img">
+			<img src="{{person.image}}" alt="{person.name}}" class="tile__img">
+		</div>
+		<p class="tile__row">Имя: {{person.name}}</p>
+		<p class="tile__row">Телефон: {{person.phone}}</p>
+		<p class="tile__row">Почта: {{person.email}}</p>
+	</div>
+</div>
